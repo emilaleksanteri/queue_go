@@ -42,14 +42,14 @@ func (q *Queue) peak() uint16 {
 func (q *Queue) enque(value uint16) {
 	q.length += 1
 	newTail := Node{ value: value }
-	if (q.length == 1) {
+	if q.length == 1 {
 		q.head = &newTail
 		q.tail = *&q.head
 		q.head.next = q.tail
 		return
 	}
 
-	if (q.length == 2) {
+	if q.length == 2 {
 		q.head.next = q.tail
 		q.tail.next = &newTail
 		q.tail = q.tail.next
@@ -68,12 +68,11 @@ func (q *Queue) deque() uint16 {
 	q.length -= 1
 
 	value := q.head.value
-	if (q.length == 0) {
+	if q.length == 0 {
 		q.head = &Node{}
 		q.tail = q.head
 		return value
 	}
-	fmt.Println(q.head.next, "is next from head")
 	q.head = q.head.next
 	return value
 }
