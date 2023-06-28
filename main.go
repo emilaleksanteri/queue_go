@@ -1,26 +1,8 @@
 package main
 
-import (
-	"fmt"
-)
+
 
 func main() {
-	queue := new(Queue)
-	fmt.Println(queue)
-
-	queue.enque(1)
-	queue.enque(10)
-	queue.enque(8)
-	queue.enque(5)
-	fmt.Println("Queue should be 1, 10, 8, 5 now")
-
-	fmt.Println(queue.deque())
-	fmt.Println("head:", queue.peak(), "len:", queue.length)
-	fmt.Println("Queue head should be: 10, length: 3")
-
-	fmt.Println(queue.deque())
-	fmt.Println("head", queue.peak(), "len:", queue.length)
-	fmt.Println("Queue head should be: 8, length: 2")
 }
 
 
@@ -45,7 +27,6 @@ func (q *Queue) enque(value uint16) {
 	if q.length == 1 {
 		q.head = &newTail
 		q.tail = *&q.head
-		q.head.next = q.tail
 		return
 	}
 
